@@ -12,12 +12,12 @@ public class Book implements Serializable {
 	private String ISBN;
 	private String title;
 	private String author;
-	private int price;
+	private double price;
 	private int availability;
 	private String genre;
 	
 	
-	public Book(String iSBN, String title, String author, int price, int availability, String genre) {
+	public Book(String iSBN, String title, String author, double price, int availability, String genre) {
 		super();
 		ISBN = iSBN;
 		this.title = title;
@@ -45,7 +45,7 @@ public class Book implements Serializable {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	public void setPrice(int price) {

@@ -77,4 +77,37 @@ public class Library implements Serializable {
 		return books;
 	}
 	
-}
+	//Extra Methods
+	// New method: Get a book by its ISBN
+    public Book getBookByISBN(String isbn) throws BookNotFoundException {
+        for (Book book : books) {
+            if (book.getISBN().equalsIgnoreCase(isbn)) {
+                return book;
+            }
+        }
+        throw new BookNotFoundException("Book with ISBN " + isbn + " not found.");
+    }
+
+    // New method: Update the availability of a book by its ISBN
+    public void updateBookAvailability(String isbn, int newAvailability) throws BookNotFoundException {
+        for (Book book : books) {
+            if (book.getISBN().equalsIgnoreCase(isbn)) {
+                book.setAvailability(newAvailability);
+                return;
+            }
+        }
+        throw new BookNotFoundException("Book with ISBN " + isbn + " not found.");
+    }
+    
+    // Method to add a book
+    public void addBook(String isbn, String title, String author, double price, int availability, String genre) {
+        Book newBook = new Book(isbn, title, author, price, availability, genre);
+        books.add(newBook);
+        System.out.println("Book added successfully: " + title);
+    }
+
+
+    }
+	
+	
+
